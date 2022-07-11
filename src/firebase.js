@@ -1,8 +1,17 @@
+// Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getFirestore } from '@firebase/firestore';
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 const firebaseConfig = {
-    apiKey: "AIzaSyC6rKoqyWobhN7Nfe1tnnX5mwTU0_7mLQM",
-    authDomain: "slack-clone-wy.firebaseapp.com",
-    projectId: "slack-clone-wy",
-    storageBucket: "slack-clone-wy.appspot.com",
-    messagingSenderId: "727518346890",
-    appId: "1:727518346890:web:c161413ac5af0edb0a3773"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_PROJECT_APP_ID
 };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// export const db = getFirestore(app);
