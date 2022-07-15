@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
 import styled from 'styled-components';
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
         <AppBody>
           <Sidebar />
           <Routes>
-            <Route exact path="/" element={""}>{/* Chat */}</Route>
+            <Route exact path="/" element={<Chat />}>
+            </Route>
           </Routes>
         </AppBody>
       </Router>

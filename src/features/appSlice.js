@@ -9,7 +9,7 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     enterRoom: (state, action) => {
-      state.roomId += action.payload.roomId;
+      state.roomId = action.payload.roomId;
     },
   },
 });
