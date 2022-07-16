@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import { db } from '../firebase';
 import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore'
 
-const ChatInput = ({channelName, channelId}) => {
+const ChatInput = ({channelName, channelId, chatRef}) => {
   
   const [input, setInput] = useState("");
 
@@ -25,6 +25,10 @@ const ChatInput = ({channelName, channelId}) => {
         userImage: "https://portfolio-weiyan1289.vercel.app/_nuxt/img/profile.f137f99.jpg",
     });
         
+    chatRef?.current?.scrollIntoView({
+        behavior: 'smooth',
+    });
+    
     setInput("");
   }
 
@@ -35,7 +39,7 @@ const ChatInput = ({channelName, channelId}) => {
             <input 
                 value={input}
                 onChange={(e) => setInput((e.target.value))}
-                placeholder={`Message #ROOM`}  
+                placeholder={`Message #${channelName}`}  
             />
             <Button hidden type='submit' onClick={sendMessage}>
                 SEND
