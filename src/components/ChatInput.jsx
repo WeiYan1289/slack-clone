@@ -10,7 +10,6 @@ const ChatInput = ({channelName, channelId, chatRef}) => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log(channelId);
 
     if(!channelId){
         return false;
@@ -28,7 +27,7 @@ const ChatInput = ({channelName, channelId, chatRef}) => {
     chatRef?.current?.scrollIntoView({
         behavior: 'smooth',
     });
-    
+
     setInput("");
   }
 
