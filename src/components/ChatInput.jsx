@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
-import { db } from '../firebase';
-import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore'
+import { db, auth } from '../firebase';
+import { addDoc, collection, doc, serverTimestamp } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const ChatInput = ({channelName, channelId, chatRef}) => {
   
   const [input, setInput] = useState("");
+  const [user] = useAuthState(auth);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -20,8 +22,8 @@ const ChatInput = ({channelName, channelId, chatRef}) => {
     addDoc(colRef, {
         message: input,
         timestamp: serverTimestamp(),
-        user: "Tan Wei Yan",
-        userImage: "https://portfolio-weiyan1289.vercel.app/_nuxt/img/profile.f137f99.jpg",
+        user: user.displayName,
+        userImage: user.photoURL,
     });
         
     chatRef?.current?.scrollIntoView({
